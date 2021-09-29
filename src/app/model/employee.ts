@@ -1,4 +1,4 @@
-import { Address } from './address.ts';
+import { Address } from './address';
 
 export class Employee {
   Id: number;
@@ -8,4 +8,5 @@ export class Employee {
   Address: Address;
   Phone: string;
   webSite: string;
+  token?: string;
 }

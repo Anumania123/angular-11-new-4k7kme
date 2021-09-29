@@ -1,22 +1,24 @@
-import { Component, VERSION } from "@angular/core";
+import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
-@Component({
-  selector: "my-app",
-  templateUrl: "./app.component.html",
-  styleUrls: ["./app.component.css"]
-})
+import { AuthenticationService } from './services';
+import { Employee } from './model';
+
+@Component({ selector: 'app', templateUrl: 'app.component.html' })
 export class AppComponent {
-  name = "Angular " + VERSION.major;
+  currentUser: Employee;
 
-  constructor() {
-    var obj = [
-      { id: 1, boy: 5, c: 9 },
-      { id: 2, boy: 6, c: 10 },
-      { id: 3, boy: 7, c: 11 },
-      { id: 4, boy: 8, c: 12 }
-    ];
-    const mapped = obj.map(({ id, boy,c }) => ({ id, boy,c }));
+  constructor(
+    private router: Router,
+    private authenticationService: AuthenticationService
+  ) {
+    this.authenticationService.currentUser.subscribe(
+      (x) => (this.currentUser = x)
+    );
+  }
 
-    console.log(mapped, "mapped");
+  logout() {
+    this.authenticationService.logout();
+    this.router.navigate(['/login']);
   }
 }
