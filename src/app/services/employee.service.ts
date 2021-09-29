@@ -26,7 +26,7 @@ export class EmployeeService {
       httpOptions
     );
   }
-  updateUser(user: User): Observable<string> {
+  updateUser(user: Employee): Observable<string> {
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',

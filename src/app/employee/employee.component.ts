@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Employee } from '../model/employee';
 import { ColDef, GridApi, ColumnApi } from 'ag-grid-community';
-import { UserService } from '../services/user.service';
+import { EmployeeService } from '../services';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 
@@ -12,20 +12,20 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class EmployeeComponent implements OnInit {
   // row data and column definitions
-  public users: User[];
+  public users: Employee[];
   public columnDefs: ColDef[];
   // gridApi and columnApi
   private api: GridApi;
   private columnApi: ColumnApi;
   constructor(
-    private userService: UserService,
+    private userService: EmployeeService,
     private router: Router,
     private toastr: ToastrService
   ) {
     this.columnDefs = this.createColumnDefs();
   }
   ngOnInit() {
-    this.userService.getUsers().subscribe((data) => {
+    this.userService.getEmployees().subscribe((data) => {
       this.users = data;
     });
   }

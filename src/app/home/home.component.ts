@@ -1,20 +1,20 @@
 import { Component } from '@angular/core';
 import { first } from 'rxjs/operators';
 
-import { Employee } from './model';
-import { UserService } from '/services';
+import { Employee } from '../model';
+import { EmployeeService } from '../services';
 
 @Component({ templateUrl: 'home.component.html' })
 export class HomeComponent {
   loading = false;
-  users: User[];
+  users: Employee[];
 
-  constructor(private userService: UserService) {}
+  constructor(private userService: EmployeeService) {}
 
   ngOnInit() {
     this.loading = true;
     this.userService
-      .getAll()
+      .getEmployees()
       .pipe(first())
       .subscribe((users) => {
         this.loading = false;
