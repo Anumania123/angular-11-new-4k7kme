@@ -1,9 +1,11 @@
+import { Address } from './address.ts';
+
 export class Employee {
-  UserId: number;
+  Id: number;
+  Name: string;
   UserName: string;
-  EmailId: string;
-  Gender: string;
-  Address: string;
-  MobileNo: string;
-  PinCode: string;
+  Email: string;
+  Address: Address;
+  Phone: string;
+  webSite: string;
 }
