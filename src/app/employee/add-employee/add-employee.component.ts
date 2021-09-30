@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { EmployeeService } from '.../services';
+import { EmployeeService } from '../../services';
 import {
   FormControl,
   FormGroup,
@@ -8,7 +8,6 @@ import {
 } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-
 @Component({
   selector: 'app-add-employee',
   templateUrl: './add-employee.component.html',
@@ -21,7 +20,7 @@ export class AddEmployeeComponent implements OnInit {
     styleUrls: ['./add-user.component.css'],
   })
   submitted: boolean = false;
-  userForm: any;
+  employeeForm: any;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -31,8 +30,8 @@ export class AddEmployeeComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.userForm = this.formBuilder.group({
-      UserName: ['', Validators.required],
+    this.employeeForm = this.formBuilder.group({
+      Name: ['', Validators.required],
       EmailId: ['', Validators.required],
       Gender: ['', Validators.required],
       Address: ['', Validators.required],
@@ -42,10 +41,10 @@ export class AddEmployeeComponent implements OnInit {
   }
   onSubmit() {
     this.submitted = true;
-    if (this.userForm.invalid) {
+    if (this.employeeForm.invalid) {
       return;
     }
-    this.userService.addUser(this.userForm.value).subscribe((data) => {
+    this.userService.addUser(this.employeeForm.value).subscribe((data) => {
       this.toastr.success('success', data.toString());
       this.router.navigate(['users']);
     });

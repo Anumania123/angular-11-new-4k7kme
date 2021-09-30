@@ -13,6 +13,27 @@ import { delay, mergeMap, materialize, dematerialize } from 'rxjs/operators';
 const users = [
   {
     id: 1,
+    username: 'Leanne Graham',
+    password: 'Leanne Graham',
+    firstName: 'Leanne',
+    lastName: 'Graham',
+  },
+  {
+    id: 2,
+    username: 'Ervin Howell',
+    password: 'Ervin Howell',
+    firstName: 'Ervin',
+    lastName: 'Howell',
+  },
+  {
+    id: 3,
+    username: 'Clementine Bauch',
+    password: 'Clementine Bauch',
+    firstName: 'Clementine',
+    lastName: 'Bauch',
+  },
+  {
+    id: 4,
     username: 'test',
     password: 'test',
     firstName: 'Test',

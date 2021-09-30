@@ -25,7 +25,9 @@
     [columnDefs]="columnDefs"
     [rowData]="users"
     rowSelection="single"
-    pagination="true"
-    paginationPageSize="5"
+    [pagination]="true"
+    [paginationPageSize]="5"
+    [floatingFilter]="true"
+    [animateRows]="true"
   ></ag-grid-angular>
 </div>
