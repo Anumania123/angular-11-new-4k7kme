@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AgGridModule } from 'ag-grid-angular';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { AgGridComponent } from '@ag-grid/ag-grid.component';
+//import { AgGridComponent } from '@ag-grid/ag-grid.component';
 // used to create fake backend
 import { fakeBackendProvider } from './support';
 
@@ -30,7 +30,6 @@ import { EmployeeComponent } from './employee/employee.component';
     EmployeeComponent,
     HomeComponent,
     LoginComponent,
-    AgGridComponent,
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },

@@ -8,7 +8,7 @@ import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-employee',
   templateUrl: './employee.component.html',
-  styleUrls: ['./employee.component.css'],
+  //styleUrls: ['./employee.component.css'],
 })
 export class EmployeeComponent implements OnInit {
   // row data and column definitions
@@ -106,6 +106,6 @@ export class EmployeeComponent implements OnInit {
     });
   }
   Add() {
-    this.router.navigate(['addUser']);
+    this.router.navigate(['addEmployee']);
   }
 }
